@@ -1,0 +1,88 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/99c678e569c7c4c0772db297c5ddd5e4c9b6322e/schema/formalization.schema.json
+version: v0.4
+project:
+  name: Real Ginibre counting CLT
+  description: Lean formalization of the main eigenvalue-counting central limit theorem
+    for admissible Lipschitz domains in the upper unit disk, following the local manuscript
+    associated with arXiv:2306.10243.
+  authors:
+  - Patrick Lopatto
+  responsible_maintainers:
+  - Patrick Lopatto
+  license: Apache-2.0
+classification:
+  arxiv:
+  - math.PR
+  msc:
+  - 60B20
+  - 60F05
+sources:
+- title: local manuscript
+  relationship: formalizes
+  note: The advertised result is its main theorem, Theorem 1.3. The manuscript is
+    not distributed with this package.
+- title: Central limit theorem for the complex eigenvalues of Gaussian random matrices
+  authors:
+  - Advay Goel
+  - Patrick Lopatto
+  - Xiaoyu Xie
+  id: arXiv:2306.10243v2
+  type: paper
+  location: https://arxiv.org/abs/2306.10243v2
+  relationship: background
+  note: Public paper associated with the local manuscript; the advertised main CLT
+    has the same domain and limiting-law scope.
+related_formalizations:
+- id: https://github.com/djalilchafai/ginibre-poincare/tree/fb58b4fd765f19a65c46cb82fb647fb0d94e28ca
+  relationship: adapts
+  note: Narrow root-multiset continuity ports; original MIT notices retained in source.
+- id: https://github.com/hkjtsgmc79-boop/colombo-odd-lean/tree/250ff20a0c2edae8f37e5733b439bf9128a877bd
+  relationship: adapts
+  note: Finite Pfaffian minor-summation infrastructure, with Apache-2.0 attribution
+    retained in source.
+status:
+  scope: The main CLT (Theorem 1.3 of the local manuscript) is proved with its original
+    domain hypotheses, real Gaussian entry law, algebraic multiplicities, exact scaling
+    and centering, all positive matrix sizes and exact limiting variance. Only this
+    principal result is advertised; other statements in the paper are outside the
+    advertised submission.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Quot.sound
+  - Classical.choice
+automation:
+  methods:
+  - method: agent
+    framework: OpenAI Codex
+    tool_setup: Lean 4 and Mathlib development using lean-beam, automated tactics,
+      and separate Codex agent tasks for source and statement review.
+  notes: Substantial proof development and verification orchestration were performed
+    by Codex agents. Patrick Lopatto is the human author and responsible maintainer.
+fidelity:
+  divergences: The formal target follows the local manuscript. Lipschitz boundaries
+    are expressed by explicit rotated rectangular upper-graph charts. Their correspondence
+    with the manuscript's rigid-coordinate description was reviewed mathematically;
+    a separate general chart-equivalence theorem is not formalized. No principal hypothesis
+    or conclusion is weakened.
+review:
+  status: agent-reviewed
+  reviewers:
+  - Separate OpenAI Codex source and statement review agents
+  notes: Automated reviewers compared principal types, central definitions and critical
+    prerequisites with the local manuscript and cited sources. Local compilation,
+    independent explicit statement checks and compiler axiom audits were used. No
+    independent human peer review or source-author endorsement is claimed. Protected
+    Comparator and independent kernel replay remain unrun on the local macOS environment.
+alignment:
+  namespace: Paper
+  statements:
+  - source: local manuscript, Theorem 1.3
+    lean: Paper.principalTheorem
+    module: GinoeClt.SkewOrthogonal.CountPfaffianIdentity
+    status: proved
+    note: Unconditional apart from the original admissibility hypotheses; the entry
+      point is exported by Solution.
+acknowledgements: Mathlib and Lean; narrow adapted-source attribution and license
+  notices are preserved in the relevant modules.
