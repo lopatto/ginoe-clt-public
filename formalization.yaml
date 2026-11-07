@@ -1,10 +1,11 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/99c678e569c7c4c0772db297c5ddd5e4c9b6322e/schema/formalization.schema.json
 version: v0.4
 project:
-  name: Real Ginibre counting CLT
-  description: Lean formalization of the main eigenvalue-counting central limit theorem
-    for admissible Lipschitz domains in the upper unit disk, following the local manuscript
-    associated with arXiv:2306.10243.
+  name: Central limit theorem for the complex eigenvalues of Gaussian random matrices
+  description: >-
+    This project formalizes the main theorem of the paper “Central limit theorem
+    for the complex eigenvalues of Gaussian random matrices” by Advay Goel,
+    Patrick Lopatto, and Xiaoyu Xie.
   authors:
   - Patrick Lopatto
   responsible_maintainers:
