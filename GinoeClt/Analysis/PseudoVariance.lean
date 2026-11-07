@@ -10,8 +10,10 @@ public import GinoeClt.Cumulants.CountKernelComparison
 
 /-! # The second determinantal pseudo-cumulant and count variance reduction
 
-The analytic pseudo-cumulant limit is unconditional. Actual count conclusions
-explicitly retain the open finite-ensemble identity from CountKernelComparison.
+The analytic pseudo-cumulant limit is unconditional. The count conclusions here
+take the finite factorial-moment identity from CountKernelComparison as an explicit
+proof parameter. It is proved and supplied in SkewOrthogonal.CountPfaffianIdentity,
+which exports the resulting unconditional variance limit.
 -/
 
 @[expose] public section
@@ -100,8 +102,8 @@ end Paper.Kernel
 
 namespace Paper
 
-/-- Conditional actual raw-count variance-cumulant limit. The finite-ensemble
-identity remains an explicit unresolved proof parameter. -/
+/-- Conditional actual raw-count variance-cumulant limit. The finite factorial-moment
+identity is an explicit proof parameter here, proved in SkewOrthogonal.CountPfaffianIdentity. -/
 theorem countCumulant_two_tendsto_of_finiteLaw {A : Set ℂ}
     (hA : IsAdmissibleLipschitzDomain A) (hLaw : CountPfaffianMomentIdentity A) :
     Tendsto (fun n : ℕ => countCumulant A n 2 / Real.sqrt (n + 1 : ℝ))
@@ -140,8 +142,9 @@ theorem cumulant_two_tendsto_of_finiteLaw {A : Set ℂ}
   rw [inv_pow, hp]
   ring
 
-/-- Actual variance of the reviewed normalized statistic; the open ensemble
-identity is displayed rather than assumed or hidden in the definition. -/
+/-- Actual variance of the normalized statistic, with the finite factorial-moment
+identity as an explicit proof parameter. SkewOrthogonal.CountPfaffianIdentity supplies
+this parameter and exports the resulting unconditional variance limit. -/
 theorem statistic_variance_tendsto_of_finiteLaw {A : Set ℂ}
     (hA : IsAdmissibleLipschitzDomain A) (hLaw : CountPfaffianMomentIdentity A) :
     Tendsto (fun n : ℕ => ProbabilityTheory.variance (statistic A n) (matrixLaw n)) atTop

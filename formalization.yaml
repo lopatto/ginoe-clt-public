@@ -51,7 +51,10 @@ sources:
 related_formalizations:
 - id: https://github.com/djalilchafai/ginibre-poincare/tree/fb58b4fd765f19a65c46cb82fb647fb0d94e28ca
   relationship: adapts
-  note: Narrow root-multiset continuity ports; original MIT notices retained in source.
+  note: >-
+    Adapted root-multiset and spectral-continuity proofs, polynomial-nullity
+    arguments, and almost-sure simple-spectrum results for the real Gaussian
+    ensemble; original MIT notices retained in source.
 - id: https://github.com/hkjtsgmc79-boop/colombo-odd-lean/tree/250ff20a0c2edae8f37e5733b439bf9128a877bd
   relationship: adapts
   note: Finite Pfaffian minor-summation infrastructure, with Apache-2.0 attribution

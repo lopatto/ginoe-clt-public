@@ -8,9 +8,11 @@ module
 public import GinoeClt.Cumulants.CountKernelComparison
 public import GinoeClt.Cumulants.DeterminantalAsymptotics
 
-/-! # Count-cumulant asymptotics conditional on the open finite correlation identity
+/-! # Count-cumulant asymptotics parameterized by the finite factorial-moment identity
 
-No finite-ensemble correlation law is assumed globally or proved by this module.
+The finite factorial-moment identity is an explicit proof parameter here. It is
+proved and supplied in SkewOrthogonal.CountPfaffianIdentity, which exports the
+resulting unconditional cumulant limits.
 -/
 
 @[expose] public section

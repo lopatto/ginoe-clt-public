@@ -9,8 +9,9 @@ public import GinoeClt.Analysis.VarianceAsymptotic
 
 /-! # The literal analytic variance-kernel expression
 
-This module does not identify this expression with the ensemble count variance.
-That identification requires the still-open correlation-law input.
+This module proves analytic kernel estimates. The corresponding count-variance
+conclusions are assembled in SkewOrthogonal.CountPfaffianIdentity using its
+proved finite factorial-moment identity.
 -/
 
 @[expose] public section

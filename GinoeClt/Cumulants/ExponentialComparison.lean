@@ -10,9 +10,11 @@ public import GinoeClt.Cumulants.PseudoCumulants
 
 /-! # Fixed-order pseudo-cumulant error propagation
 
-The genuine factorial-moment versus determinant-integral comparison must still
-supply the explicit input estimates. This lemma proves only their finite
-polynomial propagation, keeping one exponential rate for every fixed order.
+The factorial-moment versus determinant-integral estimates are explicit inputs
+to this lemma. Their GinOE instances are proved in CountKernelComparison under
+the finite factorial-moment identity supplied by SkewOrthogonal.CountPfaffianIdentity.
+This module proves finite polynomial error propagation, keeping one exponential
+rate for every fixed order.
 -/
 
 @[expose] public section

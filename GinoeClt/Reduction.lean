@@ -11,8 +11,9 @@ import Mathlib.Tactic.Positivity
 /-!
 # Checked cumulant-to-moment logical reduction
 
-All unresolved statements are explicit proof parameters. This module does not
-provide an unconditional CLT or approve any external mathematical assumption.
+The analytic and geometric prerequisites are explicit proof parameters in this
+conditional reduction. They are discharged in downstream modules, culminating
+in the unconditional principal theorem in SkewOrthogonal.CountPfaffianIdentity.
 -/
 
 public section

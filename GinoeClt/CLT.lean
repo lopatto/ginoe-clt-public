@@ -12,9 +12,10 @@ public import GinoeClt.Cumulants.GaussianMoments
 public import GinoeClt.Probability.MomentCriterion
 
 /-!
-# Reduction to the remaining geometric and cumulant asymptotic obligations
+# Reduction from cumulant limits to the CLT
 
-The reductions remain parameterized by actual GinOE cumulant limits.
+The reductions here take actual GinOE cumulant limits as explicit proof parameters.
+Those limits are proved and supplied in SkewOrthogonal.CountPfaffianIdentity.
 All probability and finite-positive boundary-length prerequisites are proved.
 -/
 
@@ -30,7 +31,7 @@ theorem momentCumulantIdentity_of_isOpen (A : Set ℂ) (hA : IsOpen A) :
     (statistic_mem_interior_integrableExpSet (countMeasurable_of_isOpen A hA) n 0) r
 
 /-- The earlier reduction retaining length and cumulant-limit premises.
-Length is proved below; the actual cumulant limits are supplied in
+Length is supplied by boundaryLengthRegular_of_admissible; the cumulant limits are supplied in
 SkewOrthogonal.CountPfaffianIdentity.
 This is not an unconditional proof of PrincipalStatement. -/
 theorem mainTheorem_of_length_and_cumulantLimits (A : Set ℂ)

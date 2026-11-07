@@ -9,7 +9,7 @@ public import GinoeClt.CLT
 public import GinoeClt.Cumulants.CountAsymptotics
 public import GinoeClt.Analysis.PseudoVariance
 
-/-! # The remaining finite-law reduction
+/-! # CLT reduction through the finite factorial-moment identity
 
 These conditional reductions isolate the finite factorial-moment identity.
 It is proved and supplied in SkewOrthogonal.CountPfaffianIdentity, which gives
@@ -28,7 +28,8 @@ lemma varianceOfLength_coe (ell : ℝ≥0) :
   simp only [varianceOfLength, NNReal.coe_div]
   rw [Real.coe_toNNReal _ (by positivity)]
 
-/-- All analytic asymptotic work is reduced to the explicitly open finite law. -/
+/-- The cumulant limits follow from the explicit finite factorial-moment identity,
+proved and supplied in SkewOrthogonal.CountPfaffianIdentity. -/
 theorem cumulantLimits_of_momentIdentity {A : Set ℂ}
     (hA : IsAdmissibleLipschitzDomain A) (hLaw : CountPfaffianMomentIdentity A)
     (ell : ℝ≥0) (hell : (ell : ℝ≥0∞) = boundaryMeasure A) : CumulantLimits A ell := by

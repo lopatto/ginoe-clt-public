@@ -12,11 +12,12 @@ public import GinoeClt.Spectral.Count
 
 /-! # Conditional count-to-kernel reduction
 
-The finite GinOE correlation identity is not proved here. The named input below
-is the genuine factorial-moment consequence of the manuscript's correlation
-identity and Pfaffian formula, including its area Jacobian. Its eventual,
-fixed-order scope suffices for this asymptotic reduction; it does not replace
-the full correlation-function theorem. No external result is assumed globally.
+This module takes the finite factorial-moment identity as an explicit proof
+parameter. It is proved for every positive matrix size and supplied in
+SkewOrthogonal.CountPfaffianIdentity. The named input below is the factorial-moment
+consequence of the manuscript's correlation identity and Pfaffian formula, including
+its area Jacobian. Its eventual, fixed-order scope suffices for this asymptotic
+reduction; it does not assert the full correlation-function theorem.
 -/
 
 @[expose] public section
@@ -26,10 +27,11 @@ open scoped Topology
 
 namespace Paper
 
-/-- Open finite-ensemble input: the actual real factorial moment, embedded in
+/-- Finite-ensemble input: the actual real factorial moment, embedded in
 ℂ, equals the literal complex Pfaffian integral. This is the fixed-order
 eventual consequence of manuscript (corrdef), (pfcorr), and the scaling
-Jacobian. It is an explicit proof parameter, not an approved assumption. -/
+Jacobian. It is an explicit proof parameter here and is proved by
+countPfaffianMomentIdentity_of_admissible in SkewOrthogonal.CountPfaffianIdentity. -/
 def CountPfaffianMomentIdentity (A : Set ℂ) : Prop :=
   ∀ k : ℕ, ∀ᶠ n : ℕ in atTop,
     (countFactorialMoment A n k : ℂ) = Kernel.pfaffianKernelMoment A (n + 1) k
@@ -103,7 +105,7 @@ theorem realDeterminantMoment_powerBound {A : Set ℂ}
   ring
 
 /-- The source L33 comparison, conditional only on the explicitly displayed
-open finite-ensemble identity. Polynomial propagation spends the rate once,
+finite factorial-moment identity. Polynomial propagation spends the rate once,
 after H_r is evaluated; the resulting rate is independent of fixed r. -/
 theorem countCumulant_determinantal_exp_close {A : Set ℂ}
     (hA : IsAdmissibleLipschitzDomain A) (hLaw : CountPfaffianMomentIdentity A) :

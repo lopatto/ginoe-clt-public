@@ -9,8 +9,10 @@ public import GinoeClt.Analysis.PseudoVariance
 
 /-! # The O(1) variance approximation with its finite-law dependency explicit
 
-The analytic pseudo-cumulant estimate is unconditional. Every actual count
-approximation retains the named, still-open finite-ensemble identity.
+The analytic pseudo-cumulant estimate is unconditional. The count approximations
+here take the finite factorial-moment identity as an explicit proof parameter.
+It is proved and supplied in SkewOrthogonal.CountPfaffianIdentity, which also
+exports the resulting count-variance approximation.
 -/
 
 @[expose] public section

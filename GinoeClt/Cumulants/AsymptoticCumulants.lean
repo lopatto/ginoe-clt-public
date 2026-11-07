@@ -11,8 +11,9 @@ public import Mathlib.Analysis.Asymptotics.Ring
 
 /-! # Fixed-order recursion bounds and CLT power normalization
 
-These estimates prove the conclusion's asymptotic glue. They do not assert the
-unproved kernel, variance or comparison estimates supplying their hypotheses.
+These estimates provide the asymptotic normalization. Kernel, variance and
+comparison estimates enter as explicit hypotheses here. Their GinOE instances
+are proved in downstream modules and assembled in SkewOrthogonal.CountPfaffianIdentity.
 -/
 
 @[expose] public section
