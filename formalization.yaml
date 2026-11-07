@@ -3,9 +3,14 @@ version: v0.4
 project:
   name: Central limit theorem for the complex eigenvalues of Gaussian random matrices
   description: >-
-    This project formalizes the main theorem of the paper “Central limit theorem
-    for the complex eigenvalues of Gaussian random matrices” by Advay Goel,
-    Patrick Lopatto, and Xiaoyu Xie.
+    This project formalizes the main central limit theorem of “Central limit
+    theorem for the complex eigenvalues of Gaussian random matrices” by Advay
+    Goel, Patrick Lopatto, and Xiaoyu Xie (arXiv:2306.10243v2), using an expanded
+    local manuscript as the detailed proof source. The local manuscript was
+    prepared to ease autoformalization by adding details to the proofs. Its
+    main theorem (Theorem 1.3) is identical to the main theorem of the arXiv
+    version: the hypotheses and conclusion are unchanged. Only this main
+    theorem is advertised.
   authors:
   - Patrick Lopatto
   responsible_maintainers:
@@ -18,10 +23,6 @@ classification:
   - 60B20
   - 60F05
 sources:
-- title: local manuscript
-  relationship: formalizes
-  note: The advertised result is its main theorem, Theorem 1.3. The manuscript is
-    not distributed with this package.
 - title: Central limit theorem for the complex eigenvalues of Gaussian random matrices
   authors:
   - Advay Goel
@@ -29,10 +30,24 @@ sources:
   - Xiaoyu Xie
   id: arXiv:2306.10243v2
   type: paper
-  location: https://arxiv.org/abs/2306.10243v2
-  relationship: background
-  note: Public paper associated with the local manuscript; the advertised main CLT
-    has the same domain and limiting-law scope.
+  location: Main central limit theorem
+  relationship: formalizes
+  note: >-
+    Public source of the advertised main theorem. The formalized hypotheses
+    and conclusion are those of this theorem. The proof development uses
+    the expanded local manuscript described below; the arXiv paper is a
+    source of the result being formalized, not merely background.
+- title: Expanded local manuscript associated with arXiv:2306.10243v2
+  type: manuscript
+  location: Theorem 1.3 and its proof
+  relationship: formalizes
+  note: >-
+    Detailed proof source used in this formalization, prepared to ease
+    autoformalization by adding details to the proofs in the arXiv version.
+    Theorem 1.3 is identical to the main theorem of arXiv:2306.10243v2;
+    there is no change to its hypotheses or conclusion. The substantive
+    difference relevant to this submission is the expanded proof exposition.
+    The local manuscript is not distributed with this package.
 related_formalizations:
 - id: https://github.com/djalilchafai/ginibre-poincare/tree/fb58b4fd765f19a65c46cb82fb647fb0d94e28ca
   relationship: adapts
@@ -41,8 +56,34 @@ related_formalizations:
   relationship: adapts
   note: Finite Pfaffian minor-summation infrastructure, with Apache-2.0 attribution
     retained in source.
+- id: https://github.com/QuanyuTang/polya-neumann-simply-connected-formalization-Palomar-version-v2/tree/f07f1c7051862ba146429db6eda5dc4e8b020f74
+  relationship: adapts
+  note: >-
+    Apache-2.0 local Lipschitz graph definitions and elementary chart lemmas
+    from RequestProject/Defs.lean, BoundaryChart.lean, and JordanWinding.lean
+    are adapted in GinoeClt/Definitions.lean and
+    GinoeClt/Geometry/BoundaryCharts.lean. The chart definition here requires
+    Lipschitz continuity on the chart interval. Only local graph geometry
+    is used; no simple-connectivity hypothesis is imposed on the CLT domain.
+    Attribution is retained in the source headers.
+- id: https://github.com/human-ai-mathematics/kls-lean/tree/33fff6ea218ae07e42115bd1eacfcf7d39c534cb
+  relationship: adapts
+  note: >-
+    Apache-2.0 proof patterns from
+    FunctionalInequalities/Analysis/Graph/{Area,Integral,Divergence}.lean and
+    FunctionalInequalities/KLS/Geometry/Perimeter/{Mollification,MollifiedBoundary}.lean
+    are adapted in GinoeClt/Geometry/{GraphArea,GraphAreaFormula,GraphMeasure,
+    GraphShear,GraphGaussGreen,Mollification,IndicatorApproximation}.lean.
+    The adaptations cover graph area and integration, graph shear and Fubini
+    arguments, compact-support comparisons, indicator convolution estimates,
+    and reflected-test boundary identities. They are specialized to planar
+    Lipschitz graphs with Euclidean one-dimensional Hausdorff measure;
+    the mollification argument uses this project's proved Lipschitz
+    Gauss-Green theorem. Pinned source locations and attribution are retained
+    in the source headers.
 status:
-  scope: The main CLT (Theorem 1.3 of the local manuscript) is proved with its original
+  scope: The main CLT of arXiv:2306.10243v2, identical to Theorem 1.3 of the
+    expanded local manuscript, is proved with its original
     domain hypotheses, real Gaussian entry law, algebraic multiplicities, exact scaling
     and centering, all positive matrix sizes and exact limiting variance. Only this
     principal result is advertised; other statements in the paper are outside the
@@ -62,7 +103,9 @@ automation:
   notes: Substantial proof development and verification orchestration were performed
     by Codex agents. Patrick Lopatto is the human author and responsible maintainer.
 fidelity:
-  divergences: The formal target follows the local manuscript. Lipschitz boundaries
+  divergences: The formal target is the common main theorem of arXiv:2306.10243v2
+    and the expanded local manuscript; the latter adds proof details without changing
+    the main theorem. Lipschitz boundaries
     are expressed by explicit rotated rectangular upper-graph charts. Their correspondence
     with the manuscript's rigid-coordinate description was reviewed mathematically;
     a separate general chart-equivalence theorem is not formalized. No principal hypothesis
@@ -79,7 +122,7 @@ review:
 alignment:
   namespace: Paper
   statements:
-  - source: local manuscript, Theorem 1.3
+  - source: Main CLT of arXiv:2306.10243v2; identical to expanded local manuscript, Theorem 1.3
     lean: Paper.principalTheorem
     module: GinoeClt.SkewOrthogonal.CountPfaffianIdentity
     status: proved

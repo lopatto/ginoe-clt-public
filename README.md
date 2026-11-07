@@ -1,8 +1,13 @@
 # Real Ginibre counting CLT
 
-This package advertises **`Paper.principalTheorem`**, the main CLT
-(Theorem 1.3) of the local manuscript associated with
-[Goel–Lopatto–Xie, arXiv:2306.10243v2](https://arxiv.org/abs/2306.10243v2).
+This package formalizes **`Paper.principalTheorem`**, the main central limit
+theorem of [Goel–Lopatto–Xie, “Central limit theorem for the complex eigenvalues
+of Gaussian random matrices,” arXiv:2306.10243v2](https://arxiv.org/abs/2306.10243v2).
+The detailed proof source is an expanded local manuscript prepared to ease
+autoformalization by adding details to the proofs in the arXiv version.
+The main theorem is identical in both versions (Theorem 1.3 in the local
+manuscript), with unchanged hypotheses and conclusion. The local manuscript
+is not distributed with this package. Only this main theorem is advertised.
 
 For a nonempty connected open set $A$ with Lipschitz boundary and closure in
 the open upper unit disk, the eigenvalue count of a real iid standard Gaussian
